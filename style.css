@@ -37,7 +37,10 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  
+    grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+    max-width: 380px;
+    
   gap: 10px;
   margin: 0 auto;
 }
@@ -96,4 +99,21 @@ body {
   margin-top: 10px;
   font-style: italic;
   font-size: 14px;
+}
+
+
+@media (max-width: 480px) {
+  .header-text, .instructions, .legend {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .instructions ol {
+    padding-left: 20px;
+  }
+}
+
+
+.instructions, .pix, .footer-note {
+  text-align: center;
 }
