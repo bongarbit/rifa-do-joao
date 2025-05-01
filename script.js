@@ -40,12 +40,22 @@ function updateWhatsAppLink() {
     link = document.createElement("a");
     link.id = "whats-link";
     link.textContent = "Enviar pedido via WhatsApp";
+    
     link.style.display = "inline-block";
+    link.style.backgroundColor = "#25D366";
+    link.style.color = "#fff";
+    link.style.padding = "10px 20px";
+    link.style.borderRadius = "8px";
+    link.style.fontSize = "16px";
+    link.style.border = "none";
+    link.style.margin = "20px auto 0";
+    link.style.textAlign = "center";
+    
     link.style.marginTop = "20px";
     link.style.fontWeight = "bold";
     link.style.textDecoration = "none";
     link.style.color = "#25D366";
-    document.querySelector(".container").appendChild(link);
+    document.querySelector(".legend").insertAdjacentElement("afterend", link);
   }
 
   if (selectedNumbers.length === 0) {
@@ -57,7 +67,17 @@ function updateWhatsAppLink() {
   const message = `Olá! Gostaria de reservar os números: ${selectedNumbers.sort((a,b)=>a-b).join(", ")} da rifa do João. Já fiz o PIX para 81997313904 no valor de R$${total},00.`;
   const encoded = encodeURIComponent(message);
   link.href = `https://wa.me/5581997313904?text=${encoded}`;
-  link.style.display = "inline-block";
+  
+    link.style.display = "inline-block";
+    link.style.backgroundColor = "#25D366";
+    link.style.color = "#fff";
+    link.style.padding = "10px 20px";
+    link.style.borderRadius = "8px";
+    link.style.fontSize = "16px";
+    link.style.border = "none";
+    link.style.margin = "20px auto 0";
+    link.style.textAlign = "center";
+    
 }
 
 renderGrid();
