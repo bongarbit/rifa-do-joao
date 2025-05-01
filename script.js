@@ -1,5 +1,5 @@
 
-const soldNumbers = [5, 11, 12, 15, 17];
+const soldNumbers = [5,8,24,25,26,27,11,12,15,17,92,98];
 
 function renderGrid() {
   const grid = document.getElementById("grid");
