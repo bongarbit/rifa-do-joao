@@ -64,7 +64,7 @@ function updateWhatsAppLink() {
   }
 
   const total = selectedNumbers.length * 10;
-  const message = `Olá! Gostaria de reservar os números: ${selectedNumbers.sort((a,b)=>a-b).join(", ")} da rifa do João. Já fiz o PIX para 81997313904 no valor de R$${total},00.`;
+  const message = `Olá! Gostaria de reservar os números: ${selectedNumbers.sort((a,b)=>a-b).join(", ")} da rifa do João. Já fiz o PIX para joao-vitor-veras-dos@jim.com no valor de R$${total},00.`;
   const encoded = encodeURIComponent(message);
   link.href = `https://wa.me/5581997313904?text=${encoded}`;
   
