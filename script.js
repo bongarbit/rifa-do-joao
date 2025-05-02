@@ -1,5 +1,5 @@
 
-const soldNumbers = [5,8,24,25,26,27,11,12,15,16,17,92,98,33,35,37,40,51,54,56,77];
+const soldNumbers = [5,8,24,25,26,27,11,12,15,16,17,92,98,33,35,37,40,51,54,56,77,66];
 const selectedNumbers = [];
 
 function renderGrid() {
