@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As Aventuras do Instituto Capibaribe</title>
+<style>
+  body {
+    font-family: 'Comic Sans MS', sans-serif;
+    background-color: #fff8dc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  header {
+    background-color: #f08080;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: sticky;
+    top: 0;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2em;
+  }
+  .book-page {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff5ee;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+  .book-page.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .book-page img {
+    max-width: 100%;
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto;
+  }
+  .page-number {
+    text-align: right;
+    font-size: 0.9em;
+    color: #666;
+  }
+  .speech-bubble {
+    background: #ffefd5;
+    border: 2px solid #f08080;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px 0;
+    position: relative;
+  }
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #ffefd5 transparent transparent transparent;
+  }
+  .bird {
+    width: 50px;
+    position: fixed;
+    top: 50px;
+    right: -60px;
+    animation: fly 8s linear infinite;
+  }
+  @keyframes fly {
+    0% { right: -60px; top: 50px; }
+    50% { right: 60%; top: 100px; }
+    100% { right: -60px; top: 50px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>As Aventuras do Instituto Capibaribe</h1>
+</header>
+
+<img src="bird.png" alt="Passarinho musical" class="bird">
+
+<div class="book-page">
+  <h2>Página 1 – Capa</h2>
+  <img src="capa.jpg" alt="Capa do livro">
+  <p class="speech-bubble">"O Instituto Capibaribe é um lugar cheio de histórias, ideias e risadas!" 😆</p>
+  <div class="page-number">1</div>
+</div>
+
+<div class="book-page">
+  <h2>Página 2</h2>
+  <p class="speech-bubble">"Em 1955, no bairro das Graças, surgiu uma escola diferente… uma escola que acreditava nas crianças de verdade!"</p>
+  <p>(Olhe ao redor… será que você encontra o passarinho músico escondido nas árvores? 🎶🐦)</p>
+  <div class="page-number">2</div>
+</div>
+
+<div class="book-page">
+  <h2>Página 3</h2>
+  <p>"Paulo Freire ajudou a criar a escola, mas logo seguiu outros caminhos. Quem ficou foi a escola… e algumas ideias malucas!"</p>
+  <p>"Dona Raquel assumiu a direção e por 40 anos fez a escola crescer, cheia de criatividade, cuidado e participação das famílias." 😄</p>
+  <div class="page-number">3</div>
+</div>
+
+<div class="book-page">
+  <h2>Página 4</h2>
+  <p>"O Instituto não é só uma escola… é uma comunidade! Professores, pais e alunos decidem juntos o que é melhor para todo mundo."</p>
+  <p>"Aqui, aprender é divertido! Cada aluno constrói seu conhecimento com experimentos, perguntas e muita curiosidade." 🔬🎨</p>
+  <div class="page-number">4</div>
+</div>
+
+<div class="book-page">
+  <h2>Página 5</h2>
+  <p>"A escola valoriza cada criança e adolescente, respeitando seu ritmo e ajudando a se tornar autônomo e consciente do mundo." 🌱</p>
+  <p>"Em 1965, o Instituto Capibaribe foi reconhecido como de Utilidade Pública Estadual — uma prova de que o jeito de ensinar fazia diferença!" 👏</p>
+  <div class="page-number">5</div>
+</div>
+
+<div class="book-page">
+  <h2>Página 6 – Contra-capa</h2>
+  <p>"Mesmo depois de tantos anos, a escola continua com suas ideias originais, renovando-as para acompanhar o mundo de hoje." ✨</p>
+  <p>"O Instituto Capibaribe é mais que uma escola… é um lugar de histórias, risadas e aprendizado para a vida inteira!" 😆</p>
+  <p>(E você, leitor, pode continuar a história com sua própria imaginação!)</p>
+  <div class="page-number">6</div>
+</div>
+
+<script>
+  const pages = document.querySelectorAll('.book-page');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  pages.forEach(page => observer.observe(page));
+</script>
+
+</body>
+</html>
