@@ -84,9 +84,8 @@
       <ol>
         <li>Clique nos números disponíveis que quer comprar (pode escolher vários).</li>
         <li>Clique em Enviar pelo WhatsApp — vai abrir automaticamente uma conversa com (81) 99731-3904 com a mensagem já preenchida.</li>
-        <li>Faça o PIX para a chave <strong>joaozinhaxamba@gmail.com</strong> com o valor total.</li>
+        <li>Faça o PIX para a chave <strong>joao-vitor-veras-dos@jim.com</strong> com o valor total.</li>
         <li>Encaminhe o comprovante de transferência na mesma conversa do WhatsApp.</li>
-        <li>O número é marcado como vendido na planilha.</li>
       </ol>
       <p class="final-message">Agradeço muito a quem puder ajudar comprando um número 🙏</p>
       <p class="signature">Rifa de Joãozinha da Xambá</p>
@@ -117,14 +116,10 @@
       const soldMatch = soldText.match(/(\d+)/);
       const sold = soldMatch ? parseInt(soldMatch[1]) : 0;
 
-      const raisedText = raisedCounter.textContent || '';
-      const raisedMatch = raisedText.match(/R\$[\d,.]+/);
-      const raised = raisedMatch ? raisedMatch[0] : 'R$0';
-
-      soldValue.textContent     = sold;
+      soldValue.textContent      = sold;
       availableValue.textContent = TOTAL - sold;
-      raisedValue.textContent   = raised || 'R$0';
-      progressBar.style.width   = ((sold / TOTAL) * 100).toFixed(1) + '%';
+      raisedValue.textContent    = (sold * 10).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      progressBar.style.width    = ((sold / TOTAL) * 100).toFixed(1) + '%';
     }
 
     const observer = new MutationObserver(syncStats);
