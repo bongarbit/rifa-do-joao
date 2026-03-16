@@ -1,42 +1,135 @@
-
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rifa do João</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2.0" />
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rifa solidária para ajudar na viagem pedagógica da Joãozinha da Xambá.">
+  <title>Rifa Solidária - Joãozinha da Xambá</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header-text">
-      <h1>Sorteio Premiado em apoio à Viagem Pedagógica de João!</h1>
-      <p class="subtitle">Vamos juntos ajudar João a viver essa experiência transformadora?</p>
-      <p class="prize">Cada número corresponde a uma contribuição de R$10,mas você pode contribuir com quantos números quiser.</p>
-      <p>Você contribui para a realização desse momento e ainda tem a chance de ganhar!</p>
-    </div>
+  <main class="container">
+    <header class="hero">
+      <span class="hero-badge">Rifa Solidária</span>
+      <h1>Viagem Pedagógica<br>de João Vitor</h1>
+      <p class="description">
+        Oi gente! Estou realizando essa rifa para ajudar a custear alguns gastos extras que temos na viagem pedagógica do Instituto Capibaribe (IC).
+      </p>
+      <p class="description" style="margin-top:12px">
+        Na viagem deste ano iremos conhecer lugares super legais:<br><br>
+        📍 <strong>Sapé – PB</strong> — Memorial das ligas e lutas camponesas<br>
+        📍 <strong>Areia – PB</strong> — UFPB, centro histórico e engenho Triunfo<br>
+        📍 <strong>Alagoa Grande – PB</strong> — Comunidade quilombola Caiana dos Crioulos<br>
+        📍 <strong>Campina Grande – PB</strong><br>
+        📍 <strong>Pedra do Ingá</strong>
+      </p>
+      <p class="description" style="margin-top:12px">
+        Esses lugares são super importantes para o meu aprendizado e para a história, cultura e memória do nosso povo.
+      </p>
+      <p class="description" style="margin-top:12px">
+        O sorteio acontecerá assim que todos os números forem vendidos. Precisamos arrecadar R$700,00. Agradeço a cada pessoa que puder ajudar! 🙏
+      </p>
+    </header>
 
-    <div id="grid" class="grid"></div>
+    <section class="info card">
+      <p class="card-label">Detalhes da Rifa</p>
+      <ul>
+        <li><strong>Valor do número</strong>R$10,00</li>
+        <li><strong>Faixa de números</strong>01 ao 70</li>
+        <li><strong>Valor total</strong>R$700,00</li>
+        <li><strong>Prêmio</strong>R$50,00 no Pix</li>
+        <li><strong>Sorteio</strong>Quando todos os números forem vendidos</li>
+      </ul>
+    </section>
 
-    <div class="legend">
-      <div><span class="box available"></span> Disponível</div>
-      <div><span class="box sold"></span> Vendido</div>
-    </div>
+    <section class="status card">
+      <p class="card-label">Acompanhamento</p>
+      <div class="status-row">
+        <div class="stat-box">
+          <p class="stat-value" id="soldValue">0</p>
+          <p class="stat-label">Números vendidos</p>
+        </div>
+        <div class="stat-box">
+          <p class="stat-value" id="availableValue">70</p>
+          <p class="stat-label">Disponíveis</p>
+        </div>
+        <div class="stat-box">
+          <p class="stat-value" id="raisedValue">R$0</p>
+          <p class="stat-label">Arrecadado</p>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <!-- kept for JS compatibility -->
+      <p id="soldCounter" style="display:none"></p>
+      <p id="raisedCounter" style="display:none"></p>
+      <button id="shareBtn" type="button">Compartilhar rifa</button>
+    </section>
 
-    <div class="instructions">
-      <h2>Como participar:</h2>
+    <section class="numbers card">
+      <p class="card-label">Escolha seu número</p>
+      <div class="legend">
+        <span class="legend-item"><span class="legend-dot available"></span>Disponível</span>
+        <span class="legend-item"><span class="legend-dot selected"></span>Selecionado</span>
+        <span class="legend-item"><span class="legend-dot sold"></span>Vendido</span>
+      </div>
+      <div id="numbersGrid" class="grid" aria-live="polite">
+        <p id="loadingMessage" class="loading">Carregando números...</p>
+      </div>
+    </section>
+
+    <section class="flow card">
+      <p class="card-label">Como funciona</p>
       <ol>
-        <li>Selecione os números disponíveis no quadro acima;</li>
-        <li>Faça o PIX no valor correspondente (R$10 por número) para <strong>81997313904</strong> – <em>*Elida Veras de Lima* (avó)</em>;</li>
-        <li>Clique em “Enviar pedido via WhatsApp” para confirmar sua escolha.</li>
+        <li>Clique nos números disponíveis que quer comprar (pode escolher vários).</li>
+        <li>Clique em Enviar pelo WhatsApp — vai abrir automaticamente uma conversa com (81) 99731-3904 com a mensagem já preenchida.</li>
+        <li>Faça o PIX para a chave <strong>joaozinhaxamba@gmail.com</strong> com o valor total.</li>
+        <li>Encaminhe o comprovante de transferência na mesma conversa do WhatsApp.</li>
+        <li>O número é marcado como vendido na planilha.</li>
       </ol>
-      <p class="pix">📲 Chave PIX: <strong>81997313904</strong><br><em>*Elida Veras de Lima* (avó)</em></p>
-      <p class="footer-note">📞 Contato de João: (81) 99731-3904</p>
-      <p class="footer-note">🗳️ O sorteio acontecerá após a venda de todos os números</p>
+      <p class="final-message">Agradeço muito a quem puder ajudar comprando um número 🙏</p>
+      <p class="signature">Rifa de Joãozinha da Xambá</p>
+    </section>
+
+  <div class="send-bar" id="sendBar">
+    <div class="send-bar-info">
+      <p class="send-bar-count" id="sendBarCount">0 números selecionados</p>
+      <p class="send-bar-total" id="sendBarTotal">Total: R$0,00</p>
     </div>
+    <button class="send-bar-btn" id="sendBarBtn" type="button">Enviar pelo WhatsApp</button>
   </div>
-  <script src="script.js?v=2.1"></script>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Update new stat boxes when JS updates the legacy counters
+    const soldCounter   = document.getElementById('soldCounter');
+    const raisedCounter = document.getElementById('raisedCounter');
+    const soldValue     = document.getElementById('soldValue');
+    const availableValue= document.getElementById('availableValue');
+    const raisedValue   = document.getElementById('raisedValue');
+    const progressBar   = document.getElementById('progressBar');
+    const TOTAL         = 70;
+
+    function syncStats() {
+      const soldText = soldCounter.textContent || '';
+      const soldMatch = soldText.match(/(\d+)/);
+      const sold = soldMatch ? parseInt(soldMatch[1]) : 0;
+
+      const raisedText = raisedCounter.textContent || '';
+      const raisedMatch = raisedText.match(/R\$[\d,.]+/);
+      const raised = raisedMatch ? raisedMatch[0] : 'R$0';
+
+      soldValue.textContent     = sold;
+      availableValue.textContent = TOTAL - sold;
+      raisedValue.textContent   = raised || 'R$0';
+      progressBar.style.width   = ((sold / TOTAL) * 100).toFixed(1) + '%';
+    }
+
+    const observer = new MutationObserver(syncStats);
+    observer.observe(soldCounter,   { childList: true, subtree: true, characterData: true });
+    observer.observe(raisedCounter, { childList: true, subtree: true, characterData: true });
+  </script>
 </body>
 </html>

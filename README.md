@@ -1,1 +1,0 @@
-# rifa-do-joao
