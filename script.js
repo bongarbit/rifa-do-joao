@@ -6,7 +6,7 @@ const SHEET_GID = "0";
 const TOTAL_NUMBERS = 70;
 const NUMBER_PRICE = 10;
 const WHATSAPP_PHONE = "5581997313904";
-const PIX_KEY = "joaozinhaxamba@gmail.com";
+const PIX_KEY = "joao-vitor-veras-dos@jim.com";
 
 const soldCounterEl = document.getElementById("soldCounter");
 const raisedCounterEl = document.getElementById("raisedCounter");
@@ -199,7 +199,7 @@ function setupSendBar() {
     const msg =
       `Oi! Quero comprar ${count === 1 ? "o número" : "os números"} ${formatted} da rifa para contribuir para a tua viagem pedagógica.\n\n` +
       `Valor total: ${totalStr} (${count} × R$${NUMBER_PRICE},00)\n\n` +
-      `Vou fazer o PIX para a chave ${PIX_KEY} e encaminhar o comprovante de transferência aqui na conversa assim que realizar o pagamento!`;
+      `Vou fazer o PIX para a chave ${PIX_KEY} e encaminhar o comprovante de transferência aqui na conversa assim que realizar o pagamento`;
 
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
