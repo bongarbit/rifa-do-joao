@@ -6,6 +6,7 @@
   <meta name="description" content="Rifa solidária para ajudar na viagem pedagógica da Joãozinha da Xambá.">
   <title>Rifa Solidária - Joãozinha da Xambá</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
   <main class="container">
@@ -14,17 +15,6 @@
       <h1>Viagem Pedagógica<br>de João Vitor</h1>
       <p class="description">
         Oi gente! Estou realizando essa rifa para ajudar a custear alguns gastos extras que temos na viagem pedagógica do Instituto Capibaribe (IC).
-      </p>
-      <p class="description" style="margin-top:12px">
-        Na viagem deste ano iremos conhecer lugares super legais:<br><br>
-        📍 <strong>Sapé – PB</strong> — Memorial das ligas e lutas camponesas<br>
-        📍 <strong>Areia – PB</strong> — UFPB, centro histórico e engenho Triunfo<br>
-        📍 <strong>Alagoa Grande – PB</strong> — Comunidade quilombola Caiana dos Crioulos<br>
-        📍 <strong>Campina Grande – PB</strong><br>
-        📍 <strong>Pedra do Ingá</strong>
-      </p>
-      <p class="description" style="margin-top:12px">
-        Esses lugares são super importantes para o meu aprendizado e para a história, cultura e memória do nosso povo.
       </p>
       <p class="description" style="margin-top:12px">
         O sorteio acontecerá assim que todos os números forem vendidos. Precisamos arrecadar R$700,00. Agradeço a cada pessoa que puder ajudar! 🙏
@@ -79,6 +69,22 @@
       </div>
     </section>
 
+    <section class="map card">
+      <p class="card-label">Destinos da viagem</p>
+      <p class="description" style="margin-bottom:12px">
+        Na viagem deste ano iremos conhecer lugares super legais:<br><br>
+        📍 <strong>Sapé – PB</strong> — Memorial das ligas e lutas camponesas<br>
+        📍 <strong>Areia – PB</strong> — UFPB, centro histórico e engenho Triunfo<br>
+        📍 <strong>Alagoa Grande – PB</strong> — Comunidade quilombola Caiana dos Crioulos<br>
+        📍 <strong>Campina Grande – PB</strong><br>
+        📍 <strong>Pedra do Ingá</strong>
+      </p>
+      <p class="description" style="margin-bottom:16px">
+        Esses lugares são super importantes para o meu aprendizado e para a história, cultura e memória do nosso povo.
+      </p>
+      <div id="map"></div>
+    </section>
+
     <section class="flow card">
       <p class="card-label">Como funciona</p>
       <ol>
@@ -100,6 +106,7 @@
   </div>
   </main>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
   <script>
     // Update new stat boxes when JS updates the legacy counters
@@ -125,6 +132,29 @@
     const observer = new MutationObserver(syncStats);
     observer.observe(soldCounter,   { childList: true, subtree: true, characterData: true });
     observer.observe(raisedCounter, { childList: true, subtree: true, characterData: true });
+  </script>
+  <script>
+    const map = L.map('map', { scrollWheelZoom: false });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const destinos = [
+      { nome: 'Sapé – PB', desc: 'Memorial das ligas e lutas camponesas', lat: -7.0936, lng: -35.2281 },
+      { nome: 'Areia – PB', desc: 'UFPB, centro histórico e engenho Triunfo', lat: -6.9693, lng: -35.6968 },
+      { nome: 'Alagoa Grande – PB', desc: 'Comunidade quilombola Caiana dos Crioulos', lat: -7.0297, lng: -35.6228 },
+      { nome: 'Campina Grande – PB', desc: '', lat: -7.2306, lng: -35.8811 },
+      { nome: 'Pedra do Ingá', desc: '', lat: -7.2871, lng: -35.6044 },
+    ];
+
+    const bounds = [];
+    destinos.forEach(({ nome, desc, lat, lng }) => {
+      const popup = desc ? `<strong>${nome}</strong><br>${desc}` : `<strong>${nome}</strong>`;
+      L.marker([lat, lng]).addTo(map).bindPopup(popup);
+      bounds.push([lat, lng]);
+    });
+
+    map.fitBounds(bounds, { padding: [32, 32] });
   </script>
 </body>
 </html>

@@ -462,3 +462,10 @@ h2 {
     border-radius: 8px;
   }
 }
+
+/* ── Map ── */
+#map {
+  height: 320px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
