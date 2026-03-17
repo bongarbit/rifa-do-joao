@@ -226,8 +226,10 @@ function setupShareButton() {
       url: window.location.href
     };
 
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
     try {
-      if (navigator.share) {
+      if (isMobile && navigator.share) {
         await navigator.share(shareData);
       } else {
         const msg = `${shareText} ${window.location.href}`;
