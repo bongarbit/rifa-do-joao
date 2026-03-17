@@ -230,8 +230,9 @@ function setupShareButton() {
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-        await navigator.clipboard.writeText(`${shareText} ${window.location.href}`);
-        alert("Link copiado para compartilhar.");
+        const msg = `${shareText} ${window.location.href}`;
+        const waUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+        window.open(waUrl, "_blank");
       }
     } catch (error) {
       console.error("Falha ao compartilhar:", error);
