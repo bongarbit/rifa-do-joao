@@ -32,7 +32,19 @@
       </ul>
     </section>
 
-    <section class="status card">
+    <section class="numbers card">
+      <p class="card-label">Escolha seu número</p>
+      <div class="legend">
+        <span class="legend-item"><span class="legend-dot available"></span>Disponível</span>
+        <span class="legend-item"><span class="legend-dot selected"></span>Selecionado</span>
+        <span class="legend-item"><span class="legend-dot sold"></span>Vendido</span>
+      </div>
+      <div id="numbersGrid" class="grid" aria-live="polite">
+        <p id="loadingMessage" class="loading">Carregando números...</p>
+      </div>
+    </section>
+
+        <section class="status card">
       <p class="card-label">Acompanhamento</p>
       <div class="status-row">
         <div class="stat-box">
@@ -54,18 +66,6 @@
       <!-- kept for JS compatibility -->
       <p id="soldCounter" style="display:none"></p>
       <p id="raisedCounter" style="display:none"></p>
-    </section>
-
-    <section class="numbers card">
-      <p class="card-label">Escolha seu número</p>
-      <div class="legend">
-        <span class="legend-item"><span class="legend-dot available"></span>Disponível</span>
-        <span class="legend-item"><span class="legend-dot selected"></span>Selecionado</span>
-        <span class="legend-item"><span class="legend-dot sold"></span>Vendido</span>
-      </div>
-      <div id="numbersGrid" class="grid" aria-live="polite">
-        <p id="loadingMessage" class="loading">Carregando números...</p>
-      </div>
     </section>
 
     <section class="map card">
