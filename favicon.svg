@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Ticket body -->
+  <rect x="2" y="8" width="28" height="16" rx="3" fill="#e67e22"/>
+  <!-- Dashed divider -->
+  <line x1="12" y1="9" x2="12" y2="23" stroke="#fff" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <!-- Star -->
+  <text x="21" y="20" text-anchor="middle" font-size="9" font-family="sans-serif" font-weight="bold" fill="#fff">★</text>
+  <!-- Small lines on stub -->
+  <line x1="5" y1="13" x2="10" y2="13" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="5" y1="16" x2="10" y2="16" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="5" y1="19" x2="10" y2="19" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+</svg>
