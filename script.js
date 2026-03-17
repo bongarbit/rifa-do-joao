@@ -217,12 +217,12 @@ function updateCounters(raffleData) {
 function setupShareButton() {
   shareBtn.addEventListener("click", async () => {
     const shareText =
-      "Ajude a viagem pedagógica do Instituto Capibaribe!\n\n" +
-      "Compre um número da rifa por R$5 e concorra a R$50 no PIX.\n\n" +
+      "Ajude a viagem pedagógica de Joãozinho da Xambá\n\n" +
+      "Compre um número da rifa por R$10 e concorra a um Ovo de Páscoa!\n\n" +
       "Link:";
     const shareData = {
       title: "Rifa Solidária - Viagem Pedagógica IC",
-      text: `${shareText} ${window.location.href}`,
+      text: `${shareText}`,
       url: window.location.href
     };
 
